@@ -1,0 +1,244 @@
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <title>Register</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: url('register.png') no-repeat center center fixed;
+            background-size: cover;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+            flex-direction: column;
+        }
+        .form-container {
+            background: rgba(210, 180, 140, 0.9);
+            padding: 40px;
+            border-radius: 10px;
+            width: 100%;
+            max-width: 450px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #8B4513;
+            margin-bottom: 5px;
+        }
+        h1 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 28px;
+            color: #5C4033;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #5C4033;
+            font-weight: bold;
+        }
+        input[type="text"], input[type="email"], input[type="password"], input[type="date"] {
+            width: 100%;
+            padding: 12px;
+            border-radius: 5px;
+            border: 1px solid #8B4513;
+            background-color: #F5F5DC;
+            color: #5C4033;
+            font-size: 16px;
+        }
+        input[type="submit"] {
+            background-color: #8B4513;
+            color: #fff;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            width: 100%;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        input[type="submit"]:hover {
+            background-color: #A0522D;
+        }
+        /* Notification Style */
+        .notification {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #008000;
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            font-size: 18px;
+            font-weight: bold;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .notification.error {
+            background: #FF0000;
+        }
+        /* Cookies Popup */
+        .cookie-popup {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #5C4033;
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            font-size: 16px;
+            text-align: center;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .cookie-popup button {
+            background: #8B4513;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            cursor: pointer;
+            margin-left: 10px;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Cookies Popup -->
+    <div id="cookiePopup" class="cookie-popup">
+        This website uses cookies to improve your experience. 
+        <button onclick="acceptCookies()">Accept</button>
+    </div>
+    
+<div class="form-container">
+    <h2>REGISTER NOW</h2>
+    <h1>Then Enhance Your Beauty</h1>   
+    <form method="post" name="registernow" action="#">
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+        <div class="form-group">
+            <label for="dob">Date of Birth</label>
+            <input type="date" id="dob" name="dob" required>
+        </div>
+        <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="text" id="phone" name="phone" required>
+        </div>
+        <div class="text-center mt-3">
+            <a href="register.php">
+        <!-- Submit Button -->
+        <input type="submit" value="Register">
+    </form>
+</div>
+
+
+    <!-- Success or Error Notification -->
+    <div id="notification" class="notification"></div>
+
+    <script>
+        // Show Cookies Popup
+        window.onload = function() {
+            if (!localStorage.getItem("cookiesAccepted")) {
+                document.getElementById("cookiePopup").style.display = "block";
+            }
+        };
+        function acceptCookies() {
+            localStorage.setItem("cookiesAccepted", "true");
+            document.getElementById("cookiePopup").style.display = "none";
+        }
+
+        // Function to request OTP
+        function requestOTP() {
+            let phone = document.getElementById("phone").value;
+            if (phone === "") {
+                showNotification("Please enter a phone number", "error");
+                return;
+            }
+
+            // Call the API to send OTP (Placeholder for actual API integration)
+            fetch("/send-otp", {
+                method: "POST",
+                body: JSON.stringify({ phone: phone }),
+                headers: { "Content-Type": "application/json" }
+            }).then(response => {
+                if (response.ok) {
+                    document.getElementById("otpContainer").style.display = "block"; // Show OTP input field
+                    showNotification("OTP sent to your phone!", "success");
+                } else {
+                    showNotification("Failed to send OTP. Try again.", "error");
+                }
+            });
+        }
+
+        // Function to verify OTP
+        function verifyOTP() {
+            let otp = document.getElementById("otp").value;
+            if (otp === "") {
+                showNotification("Please enter the OTP", "error");
+                return;
+            }
+
+            // Call the API to verify OTP (Placeholder for actual API integration)
+            fetch("/verify-otp", {
+                method: "POST",
+                body: JSON.stringify({ otp: otp }),
+                headers: { "Content-Type": "application/json" }
+            }).then(response => {
+                if (response.ok) {
+                    showNotification("OTP verified successfully!", "success");
+                    // Proceed with form submission after OTP is verified
+                    document.getElementById("registerForm").submit();
+                } else {
+                    showNotification("Invalid OTP. Try again.", "error");
+                }
+            });
+        }
+
+        // Show Notification Function
+        function showNotification(message, type) {
+            let notification = document.getElementById("notification");
+            notification.innerHTML = message;
+            notification.className = "notification " + type;
+            notification.style.display = "block";
+
+            setTimeout(() => {
+                notification.style.display = "none";
+            }, 3000);
+        }
+    </script>
+
+</body>
+</html>

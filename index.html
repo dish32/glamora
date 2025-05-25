@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login Role Selection</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: url('index1.png') no-repeat center center/cover;
+      height: 100vh;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      color: #3e2f1c;
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.85);
+      padding: 40px;
+      border-radius: 15px;
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    h1 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      font-size: 16px;
+      margin-bottom: 30px;
+      color: #5c4433;
+    }
+
+    .role-btn {
+      background-color: #5c3a21; /* Dark brown */
+      color: white;
+      padding: 15px 30px;
+      margin: 10px;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .role-btn:hover {
+      background-color: #3e2817;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>WELCOME GLAMORA BEAUTY CARE</h1>
+    <h2>ENHANCE YOUR BEAUTY</h2>
+    <button class="role-btn" onclick="window.location.href='customer-login.html'">Customer</button>
+    <button class="role-btn" onclick="window.location.href='employee-login.html'">Employee</button>
+  </div>
+</body>
+</html>

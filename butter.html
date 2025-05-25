@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .cart-container { width: 50%; margin: auto; }
+        .cart-item { display: flex; justify-content: space-between; padding: 10px; border-bottom: 1px solid #ccc; }
+        .total { font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h2>Shopping Cart</h2>
+    <div class="cart-container" id="cartContainer"></div>
+    <h3>Total: Rs. <span id="totalPrice">0</span></h3>
+    
+    <script>
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        const cartContainer = document.getElementById("cartContainer");
+        const totalPriceElement = document.getElementById("totalPrice");
+
+        function updateCart() {
+            cartContainer.innerHTML = "";
+            let total = 0;
+            cart.forEach((item, index) => {
+                total += item.price * item.quantity;
+                cartContainer.innerHTML += `
+                    <div class="cart-item">
+                        <span>${item.name} (x${item.quantity})</span>
+                        <span>Rs. ${item.price * item.quantity}</span>
+                        <button onclick="removeItem(${index})">Remove</button>
+                    </div>`;
+            });
+            totalPriceElement.textContent = total;
+            localStorage.setItem("cart", JSON.stringify(cart));
+        }
+
+        function removeItem(index) {
+            cart.splice(index, 1);
+            updateCart();
+        }
+
+        updateCart();
+    </script>
+</body>
+</html>
+

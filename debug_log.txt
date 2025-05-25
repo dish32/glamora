@@ -1,0 +1,38 @@
+Username: dishani mampitiya, Email: dishanimampitiya13@gmail.com
+Username: dishani, Email: dishanimampitiya32@gmail.com, Role: customer
+Username: nimala, Email: nimala23@gmail.com, Role: customer
+Username: sineth, Email: sinethsandul23@gmail.com, Role: customer
+Username: pini, Email: pini12345@gmail.com, Role: customer
+Username: amara, Email: amara12@gmail.com, Role: admin
+Username: glamoraStaff, Email: glamora@gmail.com, Role: admin
+Username: nethmi, Email: nethmi@gmail.com, Role: customer
+Username: nethma, Email: nethma2003@gmail.com, Role: customer
+Username: janeesha, Email: janeesha23@gmail.com, Role: customer
+Username: dishani , Email: dishanimampitiya32@gmail.com, Role: customer
+Username: sithumi , Email: sithumi12@gmail.com, Role: customer
+Username: pasindu karunarathna, Email: pasindukarunarathna@gmail.com, Role: customer
+Username: jayoda chamathka, Email: jayodachamathka@gmail.com, Role: customer
+Username: glamoraStaff, Email: glamora@gmail.com, Role: admin
+Username: dishani mampitiya, Email: dishanimampitiya32@gmail.com, Role: customer
+Username: glamora, Email: glamora@gmail.com, Role: admin
+Username: amara12@gmail.com, Email: amara12@gmail.com, Role: admin
+Username: amara12@gmail.com, Email: amara12@gmail.com, Role: admin
+Username: dishani, Email: dishanimampitiya82@gmail.com, Role: customer
+Username: dahami, Email: dahami123@gmail.com, Role: customer
+Username: glamora, Email: glamora@gmail.com, Role: admin
+Username: dishani mampitiya, Email: dishanimampitiya32@gmail.com, Role: customer
+Username: admin, Email: admin@gmail.com, Role: admin
+Username: admin, Email: admin@gmail.com, Role: admin
+Username: amara, Email: amara12@gmail.com, Role: customer
+Username: glamora, Email: glamora@gmail.com, Role: admin
+Username: glamoraStaff, Email: glamora@gmail.com, Role: admin
+Username: dishani, Email: dishanimampitiya32@gmail.com, Role: customer
+Username: pinidi, Email: pinidi@gmail.com, Role: customer
+Username: glamora, Email: glamora@gmail.com, Role: admin
+Username: salonAdmin, Email: salonAdmin@gmail.com, Role: admin
+Username: glamoraStaff, Email: glamora1@gmail.com, Role: admin
+Username: himehi dewmini, Email: himeshidewmini@gmail.com, Role: customer
+Username: kamala, Email: kamala@gmail.com, Role: customer
+Username: dish, Email: dish@gmail.com, Role: customer
+Username: janeesha, Email: janee@gmail.com, Role: customer
+Username: dishani MA, Email: dishaniMA@gmail.com, Role: customer

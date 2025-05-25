@@ -1,0 +1,124 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Feedback</title>
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #FAF3E0;
+            color: #5C4033;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            color: #8B4513;
+            margin: 20px 0;
+        }
+
+        .feedback-container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #F5F5DC;
+            border-radius: 10px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .feedback-image {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .feedback-form {
+            max-width: 600px;
+            margin: 30px auto;
+            padding: 20px;
+            background: rgba(245, 222, 179, 0.9);
+            border-radius: 10px;
+            box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            font-weight: bold;
+            color: #5C4033;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #8B4513;
+            font-size: 16px;
+            background-color: #FFF8DC;
+        }
+
+        button {
+            background-color: #8B4513;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            width: 100%;
+            cursor: pointer;
+            font-size: 18px;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #A0522D;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>What Our Customers Say</h1>
+
+    <div class="feedback-container">
+        <img src="feedbacks.png" alt="Customer Reviews" class="feedback-image">
+    </div>
+
+    <h1>Submit Your Feedback</h1>
+
+    <div class="feedback-form">
+        <form action="#" method="post">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Your Email</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="service">Service/Product Used</label>
+            <select id="service" name="service">
+                <option value="Salon Service">Salon Service</option>
+                <option value="Beauty Product">Beauty Product</option>
+            </select>
+
+            <label for="rating">Rating</label>
+            <select id="rating" name="rating">
+                <option value="5">⭐⭐⭐⭐⭐ (Excellent)</option>
+                <option value="4">⭐⭐⭐⭐ (Very Good)</option>
+                <option value="3">⭐⭐⭐ (Good)</option>
+                <option value="2">⭐⭐ (Average)</option>
+                <option value="1">⭐ (Poor)</option>
+            </select>
+
+            <label for="feedback">Your Feedback</label>
+            <textarea id="feedback" name="feedback" rows="4" required></textarea>
+
+            <button type="submit">Submit Feedback</button>
+        </form>
+    </div>
+
+</body>
+</html>
+

@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IEAMS Salon Services</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: #C4A484;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #5C4033;
+        }
+        .item {
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid #ddd;
+            padding: 15px;
+            cursor: pointer;
+        }
+        .item img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-right: 15px;
+            transition: transform 0.3s;
+        }
+        .item img:hover {
+            transform: scale(1.1);
+        }
+        .item-details {
+            flex: 1;
+            text-align: left;
+        }
+        .item-name {
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .item-description {
+            font-size: 14px;
+            color: #555;
+            margin-top: 5px;
+        }
+        .item-price {
+            font-size: 16px;
+            font-weight: bold;
+            color: #80461B;
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+        }
+        .modal-content {
+            background: white;
+            padding: 20px;
+            width: 50%;
+            margin: 10% auto;
+            border-radius: 10px;
+            text-align: center;
+            position: relative;
+        }
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 25px;
+            cursor: pointer;
+        }
+        .modal img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+        .quantity {
+            width: 60px;
+            padding: 5px;
+            font-size: 16px;
+        }
+        .order-btn {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+        .order-btn:hover {
+            background-color: #218838;
+        }
+
+        /* Date and time picker styles */
+        input[type="datetime-local"] {
+            padding: 10px;
+            font-size: 16px;
+            margin: 10px 0;
+            width: 100%;
+            max-width: 250px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>GLAMORA SALON SERVICES</h2>
+
+    <div class="item" onclick="openModal('haircolour.png', 'haircolour', 'A professional haircolour tailored to your style and preference', 'Rs. 10,000')">
+        <img src="haircolour.png" alt="Haircut">
+        <div class="item-details">
+            <div class="item-name">haircolour</div>
+            <div class="item-description">Hair color is determined by pigments called melanin, with eumelanin producing black or brown hair and pheomelanin producing red hair</div>
+            <div class="item-price">Rs.60,000</div>
+        </div>
+    </div>
+
+    <!-- Service 2 -->
+    <div class="item" onclick="openModal('facial.png', 'Facial', 'A rejuvenating facial treatment to cleanse and hydrate your skin', 'Rs. 2,500')">
+        <img src="facial.png" alt="Facial">
+        <div class="item-details">
+            <div class="item-name">Facial</div>
+            <div class="item-description">a skincare procedure that cleanses, exfoliates, and hydrates the skin, often addressing specific concerns like acne, aging, or dullness</div>
+            <div class="item-price">Rs. 24,000</div>
+        </div>
+    </div>
+
+    <div class="item" onclick="openModal('cleanup.png', 'cleanup', 'A professional cleanup to groom and beautify your nails', 'Rs. 1,000')">
+        <img src="cleanup.png" alt="Manicure">
+        <div class="item-details">
+            <div class="item-name">cleanup</div>
+            <div class="item-description">a skincare treatment focused on deep cleansing and exfoliation to remove dirt, oil, dead skin cells, and impurities, leaving the skin feeling refreshed and rejuvenated. </div>
+            <div class="item-price">Rs. 30,000</div>
+        </div>
+    </div>
+    <div class="item" onclick="openModal('eyelash.png', 'eyelash', 'A professional cleanup to groom and beautify your nails', 'Rs. 10,000')">
+        <img src="eyelash.png" alt="eyelash">
+        <div class="item-details">
+            <div class="item-name">eyelash</div>
+            <div class="item-description">enhance the appearance of lashes through various methods, including extensions, lifts, tints, and specialized treatments</div>
+            <div class="item-price">Rs. 10,000</div>
+        </div>
+    </div>
+      <div class="item" onclick="openModal('acne.png', 'acne', 'A professional cleanup to groom and beautify your nails', 'Rs. 9,000')">
+        <img src="acne.png" alt="acne">
+        <div class="item-details">
+            <div class="item-name">acne</div>
+            <div class="item-description">a specialized skin treatment designed to address acne concerns, focusing on cleansing, exfoliation, and extraction to remove impurities, reduce inflammation, and prevent future breakouts. </div>
+            <div class="item-price">Rs. 9,000</div>
+        </div>
+    </div>
+      <div class="item" onclick="openModal('hairextention.png', 'hairextention', 'A professional cleanup to groom and beautify your nails', 'Rs. 14,000')">
+        <img src="hairextention.png" alt="hairextention">
+        <div class="item-details">
+            <div class="item-name">hairextention</div>
+            <div class="item-description">synthetic or natural hairpieces attached to a person's natural hair to increase length, volume, texture, or overall look</div>
+            <div class="item-price">Rs. 54,000</div>
+        </div>
+    </div>
+    <div class="item" onclick="openModal('hairtreatment.png', 'hairtreatment', 'A professional cleanup to groom and beautify your nails', 'Rs. 14,000')">
+        <img src="hairtreatment.png" alt="hairtreatment">
+        <div class="item-details">
+            <div class="item-name">hairtreatment</div>
+            <div class="item-description">products or procedures designed to address specific hair concerns like frizz, dryness, damage, or scalp issues</div>
+            <div class="item-price">Rs. 14,000</div>
+        </div>
+    </div>
+     <div class="item" onclick="openModal('straight.png', 'straight', 'A professional cleanup to groom and beautify your nails', 'Rs. 14,000')">
+        <img src="straight.png" alt="straight">
+        <div class="item-details">
+            <div class="item-name">straight</div>
+            <div class="item-description">ack of natural curls or waves, with strands typically falling flat and smooth from the scalp. </div>
+            <div class="item-price">Rs. 14,000</div>
+        </div>
+    </div>
+     <div class="item" onclick="openModal('glamoraspecial.png', 'glamoraspecial', 'A professional cleanup to groom and beautify your nails', 'Rs. 20,000')">
+        <img src="glamoraspecial.png" alt="glamoraspecial">
+        <div class="item-details">
+            <div class="item-name">glamora Special</div>
+            <div class="item-description">a customized skin treatment that goes beyond a basic facial, addressing specific skin concerns like aging, acne, or uneven texture, often incorporating advanced techniques and products</div>
+            <div class="item-price">Rs. 58,000</div>
+        </div>
+    </div>
+     <div class="item" onclick="openModal('bridal.png', 'bridal', 'A professional cleanup to groom and beautify your nails', 'Rs. 200,000')">
+        <img src="bridal.png" alt="bridal">
+        <div class="item-details">
+            <div class="item-name">Bridal Dressing</div>
+            <div class="item-description">the garment worn by the bride during a wedding ceremony, often characterized by its white color, elegant design, and the ability to make the bride feel special and beautiful on her wedding day. </div>
+            <div class="item-price">Rs. 500,000</div>
+        </div>
+    </div>
+      <div class="item" onclick="openModal('bridalred.png', 'bridalred', 'A professional cleanup to groom and beautify your nails', 'Rs. 200,000')">
+        <img src="bridalred.png" alt="bridalred">
+        <div class="item-details">
+            <div class="item-name">Bridal dressing Western</div>
+            <div class="item-description">the garment worn by the bride during a wedding ceremony, often characterized by its white color, elegant design, and the ability to make the bride feel special and beautiful on her wedding day. </div>
+            <div class="item-price">Rs. 400,000</div>
+        </div>
+    </div>
+    <div class="item" onclick="openModal('makeup.png', 'makeup', 'A professional cleanup to groom and beautify your nails', 'Rs. 25,000')">
+        <img src="makeup.png" alt="makeup">
+        <div class="item-details">
+            <div class="item-name">makeup</div>
+            <div class="item-description">cosmetics used to color and beautify the face, enhance features, or even change one's appearance</div>
+            <div class="item-price">Rs. 25,000</div>
+        </div>
+    </div>
+    <div class="item" onclick="openModal('nailart.png', 'nailart', 'A professional cleanup to groom and beautify your nails', 'Rs. 5,000')">
+        <img src="nailart.png" alt="nailart">
+        <div class="item-details">
+            <div class="item-name"nailart</div>
+            <div class="item-description">A professional manicure to groom and beautify your nails</div>
+            <div class="item-price">Rs. 5,000</div>
+        </div>
+    </div>
+</div>
+</div>
+
+
+<div id="itemModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img id="modalImage" src="" alt="">
+        <h2 id="modalName"></h2>
+        <p id="modalDescription"></p>
+        <h3 id="modalPrice"></h3>
+
+        <!-- Date and Time Picker for Appointment -->
+        <label for="appointment-date">Select Date and Time:</label>
+        <input type="datetime-local" id="appointment-date" required>
+
+        <button class="order-btn" onclick="bookAppointment()">Book Appointment</button>
+    </div>
+</div>
+
+<script>
+    let appointments = JSON.parse(localStorage.getItem('appointments')) || [];
+
+    // Open modal to book an appointment
+    function openModal(imageSrc, name, description, price) {
+        document.getElementById('modalImage').src = imageSrc;
+        document.getElementById('modalName').innerText = name;
+        document.getElementById('modalDescription').innerText = description;
+        document.getElementById('modalPrice').innerText = price;
+        document.getElementById('itemModal').style.display = 'block';
+    }
+
+    // Close the modal
+    function closeModal() {
+        document.getElementById('itemModal').style.display = 'none';
+    }
+
+    // Book an appointment
+    function bookAppointment() {
+        let serviceName = document.getElementById('modalName').innerText;
+        let appointmentDate = document.getElementById('appointment-date').value;
+
+        if (appointmentDate) {
+            let appointment = {
+                service: serviceName,
+                date: appointmentDate
+            };
+
+            // Add appointment to the list
+            appointments.push(appointment);
+
+            // Save to local storage
+            localStorage.setItem('appointments', JSON.stringify(appointments));
+
+            alert(`Appointment for ${serviceName} booked on ${appointmentDate}!`);
+            closeModal();
+        } else {
+            alert('Please select a valid date and time.');
+        }
+    }
+</script>
+
+</body>
+</html>

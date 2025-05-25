@@ -1,0 +1,274 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IEAMS Price List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: #C4A484;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color:#5C4033;
+        }
+        .item {
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid #ddd;
+            padding: 15px;
+            cursor: pointer;
+        }
+        .item img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-right: 15px;
+            transition: transform 0.3s;
+        }
+        .item img:hover {
+            transform: scale(1.1);
+        }
+        .item-details {
+            flex: 1;
+            text-align: left;
+        }
+        .item-name {
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .item-description {
+            font-size: 14px;
+            color: #555;
+            margin-top: 5px;
+        }
+        .item-price {
+            font-size: 16px;
+            font-weight: bold;
+            color:#80461B;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.6);
+        }
+        .modal-content {
+            background: white;
+            padding: 20px;
+            width: 50%;
+            margin: 10% auto;
+            border-radius: 10px;
+            text-align: center;
+            position: relative;
+        }
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 25px;
+            cursor: pointer;
+        }
+        .modal img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+        .quantity {
+            width: 60px;
+            padding: 5px;
+            font-size: 16px;
+        }
+        .order-btn {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+        .order-btn:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>GLAMORA SKIN CARE</h2>
+ <div class="item" onclick="openModal('face serum.png', 'Face Serum', 'a lightweight, concentrated skincare product designed to address specific skin concerns like dryness, wrinkles, or uneven tone, often containing high concentrations of active ingredients', 'Rs. 1,500')">
+        <img src="face serum.png" alt="Face Serum">
+        <div class="item-details">
+            <div class="item-name">Face Serum</div>
+            <div class="item-description">a lightweight, concentrated skincare product designed to address specific skin concerns like dryness, wrinkles, or uneven tone, often containing high concentrations of active ingredients</div>
+            <div class="item-price">Rs. 1,500</div>
+        </div>
+    </div>
+
+        <div class="item" onclick="openModal('acne face wash.png', 'Acne Face Wash', 'thoroughly removes excess oil, while clearing acne blemishes and helping prevent new acne formation Removes excess oil and acne.', 'Rs. 2,200')">
+        <img src="acne face wash.png" alt="Acne Face Wash">
+        <div class="item-details">
+            <div class="item-name">Acne Face Wash</div>
+            <div class="item-description">thoroughly removes excess oil, while clearing acne blemishes and helping prevent new acne formation Removes excess oil and acne.</div>
+            <div class="item-price">Rs. 2,200</div>
+        </div>
+    </div>
+
+    <div class="item" onclick="openModal('suncream.png', 'Sunscreen', 'a topical product applied to the skin to protect against the sun ray (UV) rays, reducing the risk of sunburn, skin damage, and skin cancer', 'Rs. 3,000')">
+        <img src="suncream.png" alt="Sunscreen">
+        <div class="item-details">
+            <div class="item-name">Sunscreen</div>
+            <div class="item-description">a topical product applied to the skin to protect against the sun ray (UV) rays, reducing the risk of sunburn, skin damage, and skin cancer</div>
+            <div class="item-price">Rs. 3,000</div>
+        </div>
+    </div>
+    <div class="item" onclick="openModal('hairoil.png', 'Hair oil', 'an oil-based cosmetic product intended to improve the condition of hair', 'Rs. 5,000')">
+        <img src="hairoil.png" alt="hairoil">
+        <div class="item-details">
+            <div class="item-name">Hair Oil</div>
+            <div class="item-description">an oil-based cosmetic product intended to improve the condition of hair</div>
+            <div class="item-price">Rs. 5,000</div>
+        </div>
+    </div>
+    <div class="item" onclick="openModal('perfumenight.png', 'Perfume', 'a fragrant liquid, typically made from essential oils and alcohol, used to emit a pleasant odor, often applied to the skin or clothing ', 'Rs. 8,000')">
+        <img src="perfumenight.png" alt="perfumenight">
+        <div class="item-details">
+            <div class="item-name">Perfume</div>
+            <div class="item-description">a fragrant liquid, typically made from essential oils and alcohol, used to emit a pleasant odor, often applied to the skin or clothings</div>
+            <div class="item-price">Rs. 8,000</div>
+        </div>
+    </div>
+    <div class="item" onclick="openModal('rose.png', 'Perfume', 'a fragrant liquid, typically made from essential oils and alcohol, used to emit a pleasant odor, often applied to the skin or clothing ', 'Rs. 6,500')">
+        <img src="rose.png" alt="rose">
+        <div class="item-details">
+            <div class="item-name">Perfume</div>
+            <div class="item-description">a fragrant liquid, typically made from essential oils and alcohol, used to emit a pleasant odor, often applied to the skin or clothings</div>
+            <div class="item-price">Rs. 6,500</div>
+        </div>
+    </div>
+    <div class="item" onclick="openModal('handcream.png', 'handcream', 'a topical product, often a lotion or cream, designed to moisturize and protect the skin on the hands, leaving them feeling soft, smooth, and hydrated. ', 'Rs. 2,000')">
+        <img src="handcream.png" alt="handcream">
+        <div class="item-details">
+            <div class="item-name">HandCream</div>
+            <div class="item-description"> a topical product, often a lotion or cream, designed to moisturize and protect the skin on the hands, leaving them feeling soft, smooth, and hydrated.</div>
+            <div class="item-price">Rs. 2,000</div>
+        </div>
+    </div>
+    <div class="item" onclick="openModal('cleancer.png', 'cleancer', 'a professional responsible for maintaining the cleanliness and hygiene of an assigned area, performing tasks like sweeping, mopping, dusting, and sanitizing surfaces ','Rs. 7,800')">
+        <img src="cleancer.png" alt="cleancer">
+        <div class="item-details">
+            <div class="item-name">Cleancer</div>
+            <div class="item-description">a professional responsible for maintaining the cleanliness and hygiene of an assigned area, performing tasks like sweeping, mopping, dusting, and sanitizing surfaces</div>
+            <div class="item-price">Rs. 7,800</div>
+        </div>
+    </div>
+     <div class="item" onclick="openModal('face cream.png', 'face cream', ' moisturizing product, often used as a daily skincare routine step, designed to hydrate and protect the skin, while also helping to improve the appearance of fine lines, wrinkles, and overall skin health ','Rs. 3,800')">
+        <img src="face cream.png" alt="face cream">
+        <div class="item-details">
+            <div class="item-name">Face cream</div>
+            <div class="item-description"> moisturizing product, often used as a daily skincare routine step, designed to hydrate and protect the skin, while also helping to improve the appearance of fine lines, wrinkles, and overall skin health</div>
+            <div class="item-price">Rs. 3,800</div>
+        </div>
+    </div>
+</div>
+
+
+<div id="itemModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img id="modalImage" src="" alt="">
+        <h2 id="modalName"></h2>
+        <p id="modalDescription"></p>
+        <h3 id="modalPrice"></h3>
+        <input type="number" id="quantity" class="quantity" value="1" min="1" />
+
+        <button class="card-btn" onclick="addtoCard()">Add to Card</button>
+    </div>
+</div>
+
+<script>
+    function openModal(imageSrc, name, description, price) {
+        document.getElementById('modalImage').src = imageSrc;
+        document.getElementById('modalName').innerText = name;
+        document.getElementById('modalDescription').innerText = description;
+        document.getElementById('modalPrice').innerText = price;
+        document.getElementById('itemModal').style.display = 'block';
+    }
+
+    function closeModal() {
+        document.getElementById('itemModal').style.display = 'none';
+    }
+
+    function placeOrder() {
+        let itemName = document.getElementById('modalName').innerText;
+        let quantity = document.getElementById('quantity').value;
+        alert(`Added ${quantity} x ${itemName} to order!`);
+        closeModal();
+    }
+</script>
+<script>
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    function openModal(imageSrc, name, description, price) {
+        document.getElementById('modalImage').src = imageSrc;
+        document.getElementById('modalName').innerText = name;
+        document.getElementById('modalDescription').innerText = description;
+        document.getElementById('modalPrice').innerText = price;
+        document.getElementById('itemModal').style.display = 'block';
+    }
+
+    function closeModal() {
+        document.getElementById('itemModal').style.display = 'none';
+    }
+
+    function addtoCard() {
+        let itemName = document.getElementById('modalName').innerText;
+        let itemPrice = document.getElementById('modalPrice').innerText;
+        let itemImage = document.getElementById('modalImage').src;
+
+        // Create a new item object
+        let item = {
+            name: itemName,
+            price: itemPrice,
+            image: itemImage,
+            quantity: 1
+        };
+        function placeOrder() {
+    let itemName = document.getElementById('modalName').innerText;
+    let quantity = document.getElementById('quantity').value;
+    alert(`Added ${quantity} x ${itemName} to your cart!`);
+    closeModal();
+}
+
+
+        // Add item to cart
+        cart.push(item);
+
+        // Save to local storage
+        localStorage.setItem('cart', JSON.stringify(cart));
+
+        alert(`Added ${itemName} to your cart!`);
+        closeModal();
+    }
+</script>
+</body>
+</html>
+        
